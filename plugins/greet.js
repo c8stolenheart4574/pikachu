@@ -11,7 +11,7 @@ try {
 				stst = await client.getStatus(`${num.split('@')[0]}@c.us`)
 				stst = stst.status == 401 ? '' : stst.status
 				ppimg = await client.getProfilePicture(`${num.split('@')[0]}@c.us`).catch(() => ppimg = 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_1280.png')
-				teks = `*[ NEW MEMBER IN GROUP ${mdata.subject} ]*\n\n*――――――――――――――*\n⤔ *Name*: @${num.split('@')[0]}\n⤔ *Bio*: ${stst}\n*――――――――――――――*\n\nWelcome 🎊🎊🎉!`
+				teks = `*[ NEW MEMBER TO GROUP ${mdata.subject} ]*\n\n*――――――――――――――*\n⤔ *Name*: @${num.split('@')[0]}\n⤔ *Bio*: ${stst}\n*――――――――――――――*\n\nWelcome To RFA🎊🎊🎉!`
 				let pushname = client.contacts[num].vname || client.contacts[num].notify || num.split('@')[0] 
 				Client.sendFileFromUrl(jdgn.jid, ppimg, 'user.jpg', teks, null, {contextInfo: {"mentionedJid": Client.getMentionedJidList(teks), "stanzaId":"xxxx","participant":"0@s.whatsapp.net","quotedMessage":{"groupInviteMessage":{"groupJid":from,"inviteCode":"OKOKLAH","inviteExpiration":"0","groupName":from,"caption":`Participant Added/Join ${pushname}`}},"remoteJid":num}})
 			} else if (jdgn.action == 'remove') {
